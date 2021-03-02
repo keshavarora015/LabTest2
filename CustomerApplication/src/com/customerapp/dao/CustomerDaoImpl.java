@@ -25,7 +25,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		java.sql.Date sqlDate = new java.sql.Date(tempdate.getTime());
 		
 		try {
-			PreparedStatement pstmt = connection.prepareStatement("insert into CustApp(name,address,phone,dob) values(?,?,?,?)");
+			PreparedStatement pstmt = connection.prepareStatement("insert into Customer(name,address,phone,dob) values(?,?,?,?)");
 			pstmt.setString(1, customer.getName());
 			pstmt.setString(2, customer.getAddress());
 			pstmt.setString(3, customer.getPhone());
@@ -43,7 +43,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		Customer tempCustomer = null;
 		try {
 			
-			PreparedStatement pstmt = connection.prepareStatement("select * from CustApp where id=?");
+			PreparedStatement pstmt = connection.prepareStatement("select * from Customer where id=?");
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			
